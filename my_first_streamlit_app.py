@@ -1,4 +1,5 @@
 import streamlit as st
 
-x = st.slider('x')
-st.write(x, 'squared is', x * x)
+st.write("Our First Streamlit App!")
+
+x = st.slider(label="User Input")
