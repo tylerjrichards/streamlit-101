@@ -16,4 +16,4 @@ pip install -r requirements.txt
 
 ## Troubleshooting
 
-- If you find an error, please file an issue in this repo or [email](mailto:tylerjrichards@gmail.com)/[tweet](https://twitter.com/tylerjrichards) me.
+- If you find an error, please file an issue in this repo or [email](mailto:tylerjrichards@gmail.com) or [tweet](https://twitter.com/tylerjrichards) me. I'll do my best to prioritize your issue!
