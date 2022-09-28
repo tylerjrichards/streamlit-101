@@ -1,4 +1,8 @@
+import numpy as np
+import pandas as pd
 import streamlit as st
 
-x = st.slider(label="User Inputa")
-st.write(f"{x} squared is {x*x}")
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+
+st.line_chart(chart_data)
+st.write(chart_data)
