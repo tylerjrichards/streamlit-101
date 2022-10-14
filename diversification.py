@@ -3,6 +3,12 @@ import pandas as pd
 import streamlit as st
 
 st.title("Interactive Random Number Generator")
+col_a, col_b = st.columns(2)
+
+col_a.write("🥇 this is the first column")
+col_b.write("🥈 this is the second column")
+
+
 n_rand = st.slider("Select Number of Random Numbers to Generate", min_value=5, value=50)
 dist_selection = st.radio(
     label="Select Your Distribution",
