@@ -2,34 +2,22 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(layout="wide")
+
 st.title("Interactive Random Number Generator")
+n_rand = st.slider("Select Number of Random Numbers to Generate", min_value=5, value=50)
+
+# get both chart data
+chart_data_normal = chart_data = pd.DataFrame(
+    np.random.randn(n_rand, 3), columns=["a", "b", "c"]
+)
+chart_data_uniform = pd.DataFrame(np.random.rand(n_rand, 3), columns=["a", "b", "c"])
 col_a, col_b = st.columns(2)
 
-col_a.write("🥇 this is the first column")
-col_b.write("🥈 this is the second column")
+with col_a:
+    st.write("Normal Distribution Graph")
+    st.line_chart(chart_data_normal)
 
-
-n_rand = st.slider("Select Number of Random Numbers to Generate", min_value=5, value=50)
-dist_selection = st.radio(
-    label="Select Your Distribution",
-    options=["Normal Distribution", "Uniform Distribution"],
-)
-third_col_name = st.text_input("Name one of the lines!")
-if dist_selection == "Normal Distribution":
-    chart_data = pd.DataFrame(
-        np.random.randn(n_rand, 3), columns=["a", "b", third_col_name]
-    )
-else:
-    chart_data = pd.DataFrame(
-        np.random.rand(n_rand, 3), columns=["a", "b", third_col_name]
-    )
-st.line_chart(chart_data)
-
-
-checkbox_result = st.checkbox("Check for balloons")
-if checkbox_result:
-    st.balloons()
-
-button_result = st.button("Click for balloons")
-if button_result:
-    st.balloons()
+with col_b:
+    st.write("Uniform Distribution Graph")
+    st.line_chart(chart_data_uniform)
